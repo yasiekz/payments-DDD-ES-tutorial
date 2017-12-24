@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+    php:
+        image: jakubsacha/symfony-docker:php7.1-dev
+        ports:
+            - "8080:80"
+        volumes:
+            - .:/var/www/html
