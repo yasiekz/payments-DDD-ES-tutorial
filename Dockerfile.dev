@@ -1,0 +1,7 @@
+FROM jakubsacha/symfony-docker:php7.1-dev
+
+RUN apt-get update && apt-get install -y
+RUN apt-get install -y zlib1g-dev
+RUN docker-php-ext-install zip
+
+

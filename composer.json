@@ -4,6 +4,8 @@
     "require": {
         "php": "^7.1.3",
         "ext-iconv": "*",
+        "moneyphp/money": "^3.0",
+        "ramsey/uuid": "^3.7",
         "symfony/console": "^4.0",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^4.0",
@@ -11,6 +13,7 @@
         "symfony/yaml": "^4.0"
     },
     "require-dev": {
+        "phpunit/phpunit": "^6.5",
         "symfony/dotenv": "^4.0",
         "symfony/thanks": "^1.0"
     },
