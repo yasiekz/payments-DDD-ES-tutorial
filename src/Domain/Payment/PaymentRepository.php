@@ -61,6 +61,17 @@ class PaymentRepository implements AccountBalanceWriter
     }
 
     /**
+     * @param string $paymentId
+     * @return Payment
+     */
+    public function getById(string $paymentId)
+    {
+        $events = $this->eventRepository->loadEvents($paymentId);
+
+        return Payment::regenerateFromEvents($events);
+    }
+
+    /**
      * @param Payment $payment
      */
     private function confirm(Payment $payment)

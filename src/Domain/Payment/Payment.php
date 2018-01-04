@@ -19,7 +19,6 @@ class Payment extends AggregateRoot
     const STATUS_CANCELED = 'CANCELED';
     const STATUS_INCORRECT = 'INCORRECT';
 
-
     /**
      * @var string
      */

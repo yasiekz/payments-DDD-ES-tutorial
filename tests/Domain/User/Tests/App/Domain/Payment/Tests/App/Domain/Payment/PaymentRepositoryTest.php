@@ -100,4 +100,26 @@ class PaymentRepositoryTest extends TestCase
 
         $repository->save($payment);
     }
+
+    public function testGetById()
+    {
+        $paymentId = (string)Uuid::uuid4();
+
+        $events = [
+            new PaymentCreated($paymentId, $this->uuid1, $this->uuid2, $this->money, new Code(123456)),
+            new PaymentConfirmed($paymentId),
+        ];
+
+        $eventSourcingRepository = $this->createMock(EventSourcingRepository::class);
+        $eventSourcingRepository->method('loadEvents')->with($paymentId)->willReturn(new \ArrayIterator($events));
+
+        $repository = new PaymentRepository($this->accountBalanceRepository, $eventSourcingRepository);
+
+        $payment = $repository->getById($paymentId);
+
+        $this->assertEquals(100, (int) $payment->getAmount()->getAmount());
+        $this->assertEquals(Payment::STATUS_CONFIRMED, $payment->getStatus());
+        $this->assertEquals($this->uuid1, $payment->getAccountFrom());
+        $this->assertEquals($this->uuid2, $payment->getAccountTo());
+    }
 }
