@@ -63,21 +63,6 @@ class AccountBalance
     }
 
     /**
-     * @param Money $money
-     * @return bool
-     */
-    public function canWithdraw(Money $money): bool
-    {
-        try {
-            AccountBalanceAssert::checkMoneyAmount($this->balance, $money);
-
-            return true;
-        } catch (InsufficientAccountBalanceException $exception) {
-            return false;
-        }
-    }
-
-    /**
      * @return string
      */
     public function getId(): string
