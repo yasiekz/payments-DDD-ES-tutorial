@@ -4,13 +4,8 @@ namespace App\Domain\Payment\Event;
 
 use App\Domain\DomainEvent;
 
-class UnconfirmedCode implements DomainEvent
+class UnconfirmedCode extends DomainEvent
 {
-    /**
-     * @var string
-     */
-    private $id;
-
     /**
      * @var string
      */
@@ -24,13 +19,5 @@ class UnconfirmedCode implements DomainEvent
     {
         $this->id = $id;
         $this->code = $code;
-    }
-
-    /**
-     * @return string
-     */
-    public function getId(): string
-    {
-        return $this->id;
     }
 }

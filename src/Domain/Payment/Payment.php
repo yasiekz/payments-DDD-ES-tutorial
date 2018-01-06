@@ -54,7 +54,7 @@ class Payment extends AggregateRoot
      */
     public static function create(string $id, string $accountFrom, string $accountTo, Money $amount, int $code)
     {
-        $code = new Code($code);
+        $code = Code::generate($code);
         $event = new PaymentCreated($id, $accountFrom, $accountTo, $amount, $code);
 
         $instance = new self();
@@ -73,7 +73,7 @@ class Payment extends AggregateRoot
             throw new CanNotChangeStateException('Can only confirm started payments');
         }
 
-        $codeConfirmation = new Code($code);
+        $codeConfirmation = Code::generate($code);
 
         if ($this->code->equals($codeConfirmation)) {
             $event = new PaymentConfirmed($this->id);
