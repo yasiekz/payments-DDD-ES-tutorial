@@ -17,6 +17,10 @@
         </whitelist>
     </filter>
 
+    <logging>
+        <log type="coverage-clover" target="clover.xml"/>
+    </logging>
+
     <php>
         <env name="KERNEL_CLASS" value="App\Kernel" />
         <env name="MONGODB_URL" value="mongodb://mongo:27017" />

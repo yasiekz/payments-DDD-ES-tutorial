@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/yasiekz/payments-DDD-ES-tutorial.svg?branch=master)](https://travis-ci.org/yasiekz/payments-DDD-ES-tutorial)
+
 # DDD + CQRS + ES + Symfony 4 based API + docker + Codeception
 
 This is tutorial project to learn how to connect Symfony4 and docker compose with Domain Driven Design and Event Sourcing

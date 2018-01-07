@@ -6,7 +6,11 @@ services:
 before_install:
     - docker-compose up -d
     - docker exec -it payments-ddd-es-tutorial-php composer install
+    - pip install --user codecov
 
 script:
     - docker exec -it payments-ddd-es-tutorial-php vendor/bin/phpunit -c phpunit.xml.dist
 
+after_success:
+    - codecov --file coverage/lcov.info --disable search
+    - bash <(curl -s https://codecov.io/bash)
