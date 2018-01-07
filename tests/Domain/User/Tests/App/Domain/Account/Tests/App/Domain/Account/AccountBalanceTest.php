@@ -7,6 +7,7 @@ use App\Domain\Account\Balance\Event\AccountBalanceCreated;
 use App\Domain\Account\Balance\Event\CashDeposited;
 use App\Domain\Account\Balance\Event\CashWithdrawn;
 use App\Domain\Account\Balance\InsufficientAccountBalanceException;
+use App\Domain\Account\Balance\NonSameCurrencyException;
 use App\Domain\Account\Balance\ZeroValueTransactionException;
 use Money\Money;
 use PHPUnit\Framework\TestCase;
@@ -75,6 +76,13 @@ class AccountBalanceTest extends TestCase
         $this->expectException(ZeroValueTransactionException::class);
         $balance = $this->createBalance();
         $balance->deposit(Money::PLN(0));
+    }
+
+    public function testCantDepositOtherCurrency()
+    {
+        $this->expectException(NonSameCurrencyException::class);
+        $balance = $this->createBalance();
+        $balance->deposit(Money::EUR(500));
     }
 
     public function testEventsAreRecorded()

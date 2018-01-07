@@ -2,7 +2,9 @@
 
 namespace Tests\App\Domain\Payment;
 
+use App\Domain\Account\Balance\Event\CashDeposited;
 use App\Domain\CanNotChangeStateException;
+use App\Domain\EventNotSupportedException;
 use App\Domain\Payment\Event\PaymentCanceled;
 use App\Domain\Payment\Event\PaymentConfirmed;
 use App\Domain\Payment\Event\PaymentCreated;
@@ -108,6 +110,15 @@ class PaymentTest extends TestCase
         $payment->confirm(self::CODE_VALUE);
 
         $payment->cancel();
+    }
+
+    public function testThrowExceptionOnNotSupportedEvent()
+    {
+        $this->expectException(EventNotSupportedException::class);
+        $event = new CashDeposited((string)Uuid::uuid4(), Money::PLN(50));
+        $iterator = new \ArrayIterator([$event]);
+
+        Payment::regenerateFromEvents($iterator);
     }
 
     /**
