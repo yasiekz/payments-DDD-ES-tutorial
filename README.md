@@ -26,7 +26,7 @@ After cloning repo just run:
 
 ```
 docker-compose up -d
-docker exec -it dddestest_php_1 composer install
+docker exec -it payments-ddd-es-tutorial-php composer install
 ```
 
 Then on ```localhost:8080``` will be your site.
@@ -35,6 +35,6 @@ Then on ```localhost:8080``` will be your site.
 
 ```
 docker-compose up -d
-docker exec -it dddestest_php_1 vendor/bin/phpunit
+docker exec -it payments-ddd-es-tutorial-php vendor/bin/phpunit
 ```
 
