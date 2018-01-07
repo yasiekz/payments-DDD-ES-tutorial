@@ -12,6 +12,7 @@ Event Souring is based on two most popular PHP libraries:
 - fully dockerized project
 - payments and account balance build from events
 - around 90% code coverage with phpunit unit and functional tests
+- event store on mongoDB, fully separated from domain
 
 #### Scheduled functionality
 - AccountBalanceRepository
@@ -26,7 +27,7 @@ After cloning repo just run:
 
 ```
 docker-compose up -d
-docker exec -it dddestest_php_1 composer install
+docker exec -it payments-ddd-es-tutorial-php composer install
 ```
 
 Then on ```localhost:8080``` will be your site.
@@ -35,6 +36,6 @@ Then on ```localhost:8080``` will be your site.
 
 ```
 docker-compose up -d
-docker exec -it dddestest_php_1 vendor/bin/phpunit
+docker exec -it payments-ddd-es-tutorial-php vendor/bin/phpunit
 ```
 

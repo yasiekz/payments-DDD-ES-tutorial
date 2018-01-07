@@ -11,5 +11,7 @@ services:
             - .:/var/www/html
         links:
           - mongo
+        container_name: payments-ddd-es-tutorial-php
     mongo:
         image: mongo:latest
+        container_name: payments-ddd-es-tutorial-mongo
