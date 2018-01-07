@@ -36,6 +36,6 @@ Then on ```localhost:8080``` will be your site.
 
 ```
 docker-compose up -d
-docker exec -it payments-ddd-es-tutorial-php vendor/bin/phpunit
+docker exec -it payments-ddd-es-tutorial-php vendor/bin/phpunit -c phpunit.xml.dist
 ```
 
