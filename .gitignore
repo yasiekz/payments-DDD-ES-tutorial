@@ -8,4 +8,5 @@ DDD+ES-test.iml
 .idea
 ###> phpunit/phpunit ###
 /phpunit.xml
+clover.xml
 ###< phpunit/phpunit ###
