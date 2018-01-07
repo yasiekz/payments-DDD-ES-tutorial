@@ -13,6 +13,7 @@ Event Souring is based on two most popular PHP libraries:
 - payments and account balance build from events
 - around 90% code coverage with phpunit unit and functional tests
 - event store on mongoDB, fully separated from domain
+- travis automated tests
 
 #### Scheduled functionality
 - AccountBalanceRepository
