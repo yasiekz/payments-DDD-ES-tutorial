@@ -9,9 +9,14 @@ services:
             - "8080:80"
         volumes:
             - .:/var/www/html
-        links:
-          - mongo
+        networks:
+          - all
         container_name: payments-ddd-es-tutorial-php
     mongo:
         image: mongo:latest
         container_name: payments-ddd-es-tutorial-mongo
+        networks:
+          - all
+
+networks:
+    all:
