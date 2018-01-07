@@ -3,7 +3,6 @@
 namespace App\Domain\Account\Balance\Event;
 
 use Money\Money;
-use Ramsey\Uuid\Uuid;
 
 class CashWithdrawn extends BalanceEvent
 {

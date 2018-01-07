@@ -6,12 +6,8 @@ use App\Domain\DomainEvent;
 use App\Domain\Payment\Code;
 use Money\Money;
 
-final class PaymentCreated implements DomainEvent
+final class PaymentCreated extends DomainEvent
 {
-    /**
-     * @var string
-     */
-    private $id;
     /**
      * @var string
      */
@@ -36,21 +32,13 @@ final class PaymentCreated implements DomainEvent
      * @param Money $amount
      * @param Code $code
      */
-    public function __construct($id, string $accountFrom, string $accountTo, Money $amount, Code $code)
+    public function __construct(string $id, string $accountFrom, string $accountTo, Money $amount, Code $code)
     {
         $this->id = $id;
         $this->accountFrom = $accountFrom;
         $this->accountTo = $accountTo;
         $this->amount = $amount;
         $this->code = $code;
-    }
-
-    /**
-     * @return string
-     */
-    public function getId(): string
-    {
-        return $this->id;
     }
 
     /**

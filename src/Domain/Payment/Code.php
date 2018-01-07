@@ -12,14 +12,6 @@ class Code
     private $code;
 
     /**
-     * @param int $code
-     */
-    public function __construct(int $code)
-    {
-        $this->code = self::generateCode($code);
-    }
-
-    /**
      * @return string
      */
     public function getCode()
@@ -29,11 +21,14 @@ class Code
 
     /**
      * @param int $number
-     * @return string
+     * @return Code
      */
-    public static function generateCode(int $number): string
+    public static function generate(int $number): Code
     {
-        return md5($number.self::CODE_SALT);
+        $instance = new self();
+        $instance->code = md5($number.self::CODE_SALT);
+
+        return $instance;
     }
 
     /**
@@ -44,4 +39,6 @@ class Code
     {
         return $this->code === $code->getCode();
     }
+
+
 }

@@ -9,3 +9,7 @@ services:
             - "8080:80"
         volumes:
             - .:/var/www/html
+        links:
+          - mongo
+    mongo:
+        image: mongo:latest
