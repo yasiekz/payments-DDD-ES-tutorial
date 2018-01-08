@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+    php_test:
+        build:
+            context: ./
+            dockerfile: Dockerfile.dev
+        volumes:
+            - .:/var/www/html
+        ports:
+            - "8081:80"
+        networks:
+          - test
+        container_name: payments-ddd-es-tutorial-php-test
+    mongo_test:
+        image: mongo:latest
+        container_name: payments-ddd-es-tutorial-mongo-test
+        networks:
+          - test
+
+networks:
+    test:

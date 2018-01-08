@@ -10,3 +10,4 @@ DDD+ES-test.iml
 /phpunit.xml
 clover.xml
 ###< phpunit/phpunit ###
+db-data

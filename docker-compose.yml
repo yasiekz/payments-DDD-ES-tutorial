@@ -17,6 +17,8 @@ services:
         container_name: payments-ddd-es-tutorial-mongo
         networks:
           - all
+        volumes:
+          - ./db-data:/db/data
 
 networks:
     all:
