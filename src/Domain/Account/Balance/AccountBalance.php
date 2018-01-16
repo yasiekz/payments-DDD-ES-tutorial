@@ -26,12 +26,13 @@ class AccountBalance
 
     /**
      * @param string $id
+     * @param Money $money
      * @return AccountBalance
      */
-    public static function create(string $id)
+    public static function create(string $id, Money $money)
     {
         $instance = new self;
-        $event = new AccountBalanceCreated($id);
+        $event = new AccountBalanceCreated($id, $money);
         $instance->recordEvent($event);
 
         return $instance;
@@ -94,7 +95,7 @@ class AccountBalance
         // todo: when method become bigger, just put cases into private methods
         switch (true) {
             case $event instanceof AccountBalanceCreated:
-                $this->balance = Money::PLN(0);
+                $this->balance = $event->getAmount();
                 $this->id = $event->getId();
                 break;
             case $event instanceof CashWithdrawn:
