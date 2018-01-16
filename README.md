@@ -39,7 +39,7 @@ Then on ```localhost:8080``` will be your site.
 ### Run automated tests
 
 ```
-docker-compose up -d
-docker exec -it payments-ddd-es-tutorial-php vendor/bin/phpunit -c phpunit.xml.dist
+docker-compose -f docker-compose.test.yml up -d
+docker exec -it payments-ddd-es-tutorial-php-test vendor/bin/phpunit -c phpunit.xml.dist
 ```
 

@@ -105,6 +105,6 @@ class AccountBalanceTest extends TestCase
      */
     private function createBalance()
     {
-        return AccountBalance::create(self::$id);
+        return AccountBalance::create(self::$id, Money::PLN(0));
     }
 }

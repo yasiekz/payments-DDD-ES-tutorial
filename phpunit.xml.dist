@@ -23,7 +23,7 @@
 
     <php>
         <env name="KERNEL_CLASS" value="App\Kernel" />
-        <env name="MONGODB_URL" value="mongodb://mongo:27017" />
+        <env name="MONGODB_URL" value="mongodb://mongo_test:27017" />
         <env name="MONGODB_DB" value="symfony" />
     </php>
 </phpunit>
