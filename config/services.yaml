@@ -1,3 +1,6 @@
+imports:
+    - 'services_domain.yaml'
+
 parameters:
 
 services:
@@ -6,8 +9,6 @@ services:
         autoconfigure: false
         public: false
 
-    # controllers are imported separately to make sure services can be injected
-    # as action arguments even if you don't extend any base controller class
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
