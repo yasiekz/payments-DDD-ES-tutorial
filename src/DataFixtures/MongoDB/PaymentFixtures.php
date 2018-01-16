@@ -15,6 +15,9 @@ use Money\Money;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
+/**
+ * @codeCoverageIgnore
+ */
 class PaymentFixtures extends Fixture implements DependentFixtureInterface, ContainerAwareInterface
 {
     const PAYMENT1_UUID = '0e1fd931-de13-4d47-82af-7e1f97081d61';

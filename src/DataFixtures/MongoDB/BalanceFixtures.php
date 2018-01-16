@@ -11,6 +11,9 @@ use Money\Money;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
+/**
+ * @codeCoverageIgnore
+ */
 class BalanceFixtures extends Fixture implements ContainerAwareInterface
 {
     const BALANCE1_UUID = 'e6e90e7f-74ea-4e61-a675-ad58782e1b5e';
