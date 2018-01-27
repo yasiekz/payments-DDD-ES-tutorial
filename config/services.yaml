@@ -19,6 +19,14 @@ services:
             - '@doctrine_mongodb'
             - '@serializer'
 
+    app.infrastructure.command.handlers_manager:
+        class: App\Infrastructure\Cqrs\CommandHandlersManager
+
+    app.infrastructure.command.bus:
+        class: App\Infrastructure\Cqrs\CommandBus
+        arguments:
+            - '@app.infrastructure.command.handlers_manager'
+
     property_normalizer:
         class: Symfony\Component\Serializer\Normalizer\PropertyNormalizer
         public: false
