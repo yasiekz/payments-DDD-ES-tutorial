@@ -17,9 +17,9 @@ Event Souring is based on two most popular PHP libraries:
 - around 90% code coverage with phpunit unit and functional tests
 - event store on mongoDB, fully separated from domain
 - travis automated tests
+- Data fixtures
 
 #### Scheduled functionality
-- AccountBalanceRepository
 - Load domain objects from snapshots
 - REST API calls with CQRS
 - API tests with Codeception
@@ -32,6 +32,12 @@ After cloning repo just run:
 ```
 docker-compose up -d
 docker exec -it payments-ddd-es-tutorial-php composer install
+```
+
+If you want to run your app with some predefined objects from fixtures just run:
+
+```
+docker exec -it payments-ddd-es-tutorial-php php bin/console doctrine:mongodb:fixtures:load
 ```
 
 Then on ```localhost:8080``` will be your site.

@@ -1,0 +1,13 @@
+parameters:
+
+services:
+    app.domain.account_balance.repository:
+        class: App\Domain\Account\Balance\Repository\AccountBalanceRepository
+        arguments:
+             - '@app.infrastructure.event.repository'
+
+    app.domain.payments.repository:
+        class: App\Domain\Payment\PaymentRepository
+        arguments:
+            - '@app.domain.account_balance.repository'
+            - '@app.infrastructure.event.repository'
